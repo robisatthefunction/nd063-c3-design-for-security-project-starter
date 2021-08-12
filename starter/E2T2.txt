@@ -1,3 +1,9 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+1. The security groups for our Web App and the Attack instance EC2 instances (security groups WebAppSG and AttackInstanceSG) are allowing all ingress traffic to port 22.
+2. The WebApp Ec2 instance is configured to allow users to log in with root credentials over SSH without having to use a command authenticated by a public key
+3. For the WebApp and Attack EC2 Instance process 'systemd-netwo' is listening on UDP port 68 which is associated with 'DHCP' and is reachable from the internet
 
 Bonus - provide recommendations on how to remediate the vulnerabilities.
+1. Remove the rule that allows all ingress traffic from both security groups
+2. To reduce the likelihood of a successful brute-force attack, we recommend that you configure your EC2 instance to prevent root account logins over SSH. To disable SSH root account logins, set PermitRootLogin to 'no' in /etc/ssh/sshd_config and restart sshd. When logged in as a non-root user, you can use sudo to escalate privileges when necessary. If you want to allow public key authentication with a command associated with the key, you can set **PermitRootLogin** to 'forced-commands-only'.
+3. You can edit the WebAppSG and AttackInstanceSG Security Groups to remove access from the internet on port 68

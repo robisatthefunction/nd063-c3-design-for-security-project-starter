@@ -3,3 +3,6 @@ Based on the architecture diagram, and the steps you have taken so far to upload
 # Poor practice 1
 The S3 bucket was set to public when we created it by default. When creating new S3 buckets we want to have them as protected as possible at first.
 # Poor practice 2
+I uploaded the recipe to S3 as the root user using access credentials, its better to set a user role and access aws through that.
+# Poor practice 3
+You shouldn't be able to SSH into the EC2 instances in this VPC, better to practice deploying EC2 instances you cannot access or modify and when changes need to be made, harden and deploy a new instance and terminate  and terminate the old.
