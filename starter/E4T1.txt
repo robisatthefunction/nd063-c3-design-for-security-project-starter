@@ -1,5 +1,8 @@
 
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Restrict SSH traffic for only a set of IP addresses authorized to access the Amazon EC2 instance, or restrict all SSH traffic
+2. Only allow SSH traffic from a Bastion Host
 
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+We could have enabled server side encryption using Amazon S3 Key service or an AWS KMS key.
