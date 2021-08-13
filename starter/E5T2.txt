@@ -1,13 +1,19 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
+Checkov
 
 ### Example vulnerability
+Misconfiguring a cloud storage service to be publicly accessible.
 
 ##Scan AMI’s or containers for OS vulnerabilities
+Clair
 
 ### Example vulnerability
+Giving someone who connects to a container the ability to access other containers and the target host.
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config
 
 ### Example vulnerability
+Exposing an EC2 instance's TCP port 22 over the internet.
